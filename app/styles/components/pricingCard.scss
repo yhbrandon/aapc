@@ -1,0 +1,27 @@
+.pricing-card {
+  display: flex;
+  flex: 0 1 33.33%;
+  margin: 8px 16px;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    margin-bottom: 24px;
+
+    li {
+      margin-bottom: 8px;
+    }
+  }
+
+  h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 64px;
+    margin: 0;
+    background-color: #ff4081;
+    color: rgba(255, 255, 255, 0.87);
+  }
+}
