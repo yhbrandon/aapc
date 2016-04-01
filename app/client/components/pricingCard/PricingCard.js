@@ -1,4 +1,4 @@
-import '../styles/components/pricingCard.scss'
+import './pricingCard.scss'
 import React, { Component, PropTypes } from 'react'
 import Card from 'material-ui/lib/card/card'
 import CardHeader from 'material-ui/lib/card/card-header'
