@@ -8,13 +8,13 @@ Clone repo and run:
 After cloning the repository, install dependencies:
 
 ```
-npm install
+make install
 ```
 
 ## Starting App
 
 ```
-npm start
+make dev
 ```
 
 Open `http://localhost:3000`
