@@ -1,0 +1,11 @@
+{
+  "applicationName": "AAPC",
+  "applicationEmail": "",    
+  "public": {
+    "env": "development"
+  },
+  "google": {
+    "clientId": "",
+    "secret": ""
+  }
+}

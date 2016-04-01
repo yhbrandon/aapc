@@ -19,7 +19,7 @@ class Header extends Component {
       <header>
         <div className="header-background" style={backgroundStyle}></div>
         <div className="header-contact">
-          <Avatar src={require('../assets/' + avatar + '.jpg')} size={120} />
+          <Avatar size={120} />
         </div>
       </header>
     )

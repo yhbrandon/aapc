@@ -35,14 +35,4 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  rooms: PropTypes.array.isRequired
-}
-
-function mapStateToProps(state) {
-  return {
-    rooms: state
-  }
-}
-
-export default connect(mapStateToProps)(App)
+export default App

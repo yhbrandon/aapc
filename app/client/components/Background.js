@@ -22,7 +22,7 @@ class Background extends Component {
         <Card>
           <div className="flex-row row-auto start-center flex-margin flex-padding">
             <div className="flex-margin flex-padding">
-              <img src={require('../assets/ash.jpg')} />
+              
             </div>
             <div className="flex-margin flex-padding title">
               <h2>Ashley Woodall</h2>
