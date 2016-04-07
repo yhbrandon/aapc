@@ -1,10 +1,6 @@
-import { TEST } from '../constants/ActionTypes'
+import { combineReducers } from 'redux'
+import auth from './auth'
 
-export default function getTest(state = [], action) {
-  switch (action.type) {
-    case TEST:
-      return action.name
-    default:
-      return state
-  }
-}
+export default combineReducers({
+  auth
+});

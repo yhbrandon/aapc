@@ -5,11 +5,8 @@ import { Router, browserHistory } from 'react-router';
 
 import configureStore from './client/store/configureStore'
 import routes from './client/routes'
-import { addTest } from './client/actions'
 
 const store = configureStore(browserHistory)
-
-store.dispatch(addTest('This is a test'))
 
 Meteor.startup(() => {
   render(
