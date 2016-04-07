@@ -9,27 +9,34 @@ class Login extends Component {
 
   constructor(props) {
     super(props)
+
+    this.state = {
+      email: '',
+      password: ''
+    }
   }
 
-  onSubmit(email, password) {
-    console.log('here')
-    Meteor.loginWithPassword(email, password, (err) => {
-      if (err) {
-        console.log(err)
-      } else {
-        console.log('Yay!')
-      }
-    })
+  handleChange(event, type) {
+    if (type === 'email') {
+      this.setState({email: event.target.value})
+    } else {
+      this.setState({password: event.target.value})
+    }
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.loginWithPassword(this.state.email, this.state.password)
+    this.setState({email: '', password: ''});
   }
 
   render() {
-    const { loginWithPassword } = this.props
 
     return(
       <div>
-        <form onSubmit={this.onSubmit}>
-          <input type="text" name="email" placeholder="email"/>
-          <input type="text" name="password" placeholder="password"/>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <input type="text" ref="email" placeholder="email"/>
+          <input type="password" ref="password" placeholder="password"/>
           <button type="submit">Submit</button>
         </form>
       </div>
