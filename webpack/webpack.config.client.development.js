@@ -1,5 +1,5 @@
 var webpack = require('webpack');
-var config = require('./config');
+var config = require('./config.client');
 var lodash = require('lodash');
 var devProps = require('./props');
 var RunInMeteorPlugin = require('webpack-meteor-tools/lib/RunInMeteorPlugin');
