@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import Content from './Content'
-import Posts from './Posts/Posts'
-import NewPost from './Posts/NewPost'
+import Posts from './posts/Posts'
+import NewPost from './posts/NewPost'
 import Subheader from './Subheader'
 
 function getStyles() {

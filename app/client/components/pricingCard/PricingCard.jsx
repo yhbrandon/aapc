@@ -1,4 +1,3 @@
-import './pricingCard.scss'
 import React, { Component, PropTypes } from 'react'
 import Card from 'material-ui/lib/card/card'
 import CardHeader from 'material-ui/lib/card/card-header'
@@ -7,6 +6,10 @@ import CardText from 'material-ui/lib/card/card-text'
 import FlatButton from 'material-ui/lib/flat-button'
 
 const styles = {
+  root: {
+    display: 'flex',
+    flex: '0 1 30%'
+  },
   card: {
     width: '100%'
   },
@@ -26,6 +29,16 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center'
+  },
+  list: {
+    margin: 0,
+    padding: 0,
+    listStyle: 'none',
+    textAlign: 'center',
+    marginBottom: '24px'
+  },
+  item: {
+    marginBottom: 8
   }
 }
 
@@ -38,15 +51,15 @@ class PricingCard extends Component {
   render() {
 
     return (
-      <div className="pricing-card">
+      <div className="pricing-card" style={styles.root}>
         <Card style={styles.card}>
           <CardHeader title="Test Service" style={styles.header} titleStyle={styles.headerTitle}/>
           <CardText style={styles.text}>
-           <ul>
-            <li>Benefit 1</li>
-            <li>Benefit 2</li>
-            <li>Benefit 3</li>
-            <li>Benefit 4</li>
+           <ul style={styles.list}>
+            <li style={styles.item}>Benefit 1</li>
+            <li style={styles.item}>Benefit 2</li>
+            <li style={styles.item}>Benefit 3</li>
+            <li style={styles.item}>Benefit 4</li>
            </ul>
            <FlatButton label="Call for Pricing" primary={true} />
           </CardText>

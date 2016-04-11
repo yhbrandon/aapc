@@ -20,7 +20,7 @@ class App extends Component {
     let header;
 
     if (title !== 'Blog') {
-      header = <AppBar showMenuIconButton={false} style={{height: '192'}}/>
+      header = <AppBar showMenuIconButton={false} style={{height: '192'}} zDepth={0}/>
     } else {
       header = <AppBar title={title} zDepth={0} />
     }

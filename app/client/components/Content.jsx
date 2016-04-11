@@ -3,7 +3,9 @@ import React, { Component, PropTypes } from 'react'
 
 function getStyles(props) {
   const styles = {
-    display: 'flex'
+    display: 'flex',
+    width: '100%',
+    position: 'relative'
   }
 
   styles.flexDirection = props.layout
@@ -12,6 +14,7 @@ function getStyles(props) {
   if (props.justify) styles.justifyContent = props.justify
   if (props.margin) styles.margin = props.margin
   if (props.padding) styles.padding = props.padding
+  if (props.width) styles.maxWidth = props.width
 
   if (props.style) return {...props.style, ...styles}
   else return styles
