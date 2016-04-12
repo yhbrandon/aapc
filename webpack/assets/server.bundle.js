@@ -10196,10 +10196,6 @@ var require = Npm.require;
 	var _postsGetAll2 = _interopRequireDefault(_postsGetAll);
 	
 	var PostSchema = new SimpleSchema({
-	  name: {
-	    type: String,
-	    max: 50
-	  },
 	  title: {
 	    type: String
 	  },

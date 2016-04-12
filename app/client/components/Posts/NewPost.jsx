@@ -3,7 +3,6 @@ import ContentAdd from 'material-ui/lib/svg-icons/content/add'
 import Dialog from 'material-ui/lib/dialog'
 import FlatButton from 'material-ui/lib/flat-button'
 import FloatingActionButton from 'material-ui/lib/floating-action-button'
-import moment from 'moment'
 import TextField from 'material-ui/lib/text-field'
 
 function getStyles() {
@@ -46,12 +45,10 @@ class NewPost extends Component {
   }
 
   handleSave = () => {
-    const currentDate = moment().startOf('day')
-
-    if (this.state.title === '' && this.state.title === '' ) {
+    if (this.state.title === '' && this.state.content === '' ) {
       alert('Fill that shit out yo!')
     } else {
-      this.props.createPost(currentDate, this.state.title, this.state.content)
+      this.props.createPost(this.state.title, this.state.content)
     }
   }
 

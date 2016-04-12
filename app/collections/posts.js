@@ -2,10 +2,6 @@ import lodash from 'lodash'
 import getAll from './posts/getAll'
 
 export const PostSchema = new SimpleSchema({
-  name: {
-    type: String,
-    max: 50
-  },
   title: {
     type: String
   },

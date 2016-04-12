@@ -26,7 +26,7 @@ export function loginWithPassword(email, password) {
   return dispatch => {
     Meteor.loginWithPassword(email, password, err => {
       if (err) {
-        console.log('something went wrong');
+        console.log(err);
       }
     });
   };

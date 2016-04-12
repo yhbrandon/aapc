@@ -15,24 +15,11 @@ class App extends Component {
   }
 
   render() {
-    const { children, title } = this.props;
-
-    let header;
-
-    if (title !== 'Blog') {
-      header = <AppBar showMenuIconButton={false} style={{height: '192'}} zDepth={0}/>
-    } else {
-      header = <AppBar title={title} zDepth={0} />
-    }
+    const { children } = this.props;
 
     return (
-      <section id="app">
-        <header>
-          {header}
-        </header>
-        <Content layout="row" align="flex-start" justify="center">
-          {children}
-        </Content>
+      <section>
+        {children}
       </section>
     )
   }
