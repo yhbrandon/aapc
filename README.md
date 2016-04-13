@@ -9,11 +9,13 @@ After cloning the repository, install dependencies:
 
 ```
 make install
+brew install couchdb
 ```
 
 ## Starting App
 
 ```
+couchdb
 make dev
 ```
 

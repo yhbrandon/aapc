@@ -18,7 +18,7 @@
     "file-loader": "^0.8.5",
     "jquery": "^2.2.2",
     "node-sass": "^3.4.2",
-    "react-router": "^2.0.1",
+    "opn": "^4.0.1",
     "react-transform": "0.0.3",
     "react-transform-catch-errors": "^1.0.2",
     "react-transform-hmr": "^1.0.4",
@@ -28,21 +28,28 @@
     "shelljs": "^0.6.0",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
+    "util": "^0.10.3",
     "webpack": "^1.12.13",
+    "webpack-dev-middleware": "^1.6.1",
     "webpack-dev-server": "^1.14.1",
-    "webpack-meteor-tools": "git://github.com/mindfront/webpack-meteor-tools.git#843f5a4b30c6bf268bb0fd1d2add7abcb60dabf9"
+    "webpack-hot-middleware": "^2.10.0"
   },
   "dependencies": {
     "history": "^2.0.1",
     "lodash": "^4.5.0",
     "material-ui": "^0.14.4",
     "moment": "^2.12.0",
+    "pouchdb": "^5.3.1",
+    "pouchdb-authentication": "^0.4.3",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.0",
+    "react-router": "^2.1.1",
+    "react-router-redux": "^4.0.2",
     "react-tap-event-plugin": "^0.2.2",
     "reactify": "^1.1.1",
     "redux": "^3.3.1",
+    "redux-form": "^5.0.1",
     "redux-logger": "^2.5.2",
     "redux-thunk": "^1.0.3"
   }
