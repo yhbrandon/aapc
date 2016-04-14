@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { push } from 'react-router-redux'
 import AppBar from 'material-ui/lib/app-bar'
 import Content from './Content'
 import Posts from './posts/Posts'
@@ -24,7 +25,7 @@ class Blog extends Component {
     editPost: PropTypes.func
   }
 
-  constructor(props) {
+  constructor (props) {
     super(props)
   }
 
@@ -61,7 +62,7 @@ Blog.propTypes = {
   deletePost: PropTypes.func,
   editPost: PropTypes.func,
   title: PropTypes.string,
-  user: PropTypes.string
+  posts: PropTypes.array
 }
 
 export default Blog

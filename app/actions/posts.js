@@ -1,14 +1,9 @@
-import * as type from '../constants/ActionTypes'
+import * as types from '../constants/ActionTypes'
 
 export function createPost() {
   return (date, title, content) => {
     return dispatch => {
-      dispatch({
-        type: type.POSTS_CREATE,
-        date: date,
-        title: title,
-        content: content
-      })
+      dispatch({ type: types.CREATE_POST, date: date, title: title, content: content })
     }
   }
 }

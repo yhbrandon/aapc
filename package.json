@@ -39,6 +39,7 @@
     "lodash": "^4.5.0",
     "material-ui": "^0.14.4",
     "moment": "^2.12.0",
+    "pouch-redux-middleware": "^0.2.0",
     "pouchdb": "^5.3.1",
     "pouchdb-authentication": "^0.4.3",
     "react": "^0.14.7",
@@ -51,6 +52,7 @@
     "redux": "^3.3.1",
     "redux-form": "^5.0.1",
     "redux-logger": "^2.5.2",
+    "redux-pouchdb": "0.0.7",
     "redux-thunk": "^1.0.3"
   }
 }

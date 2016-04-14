@@ -2,7 +2,8 @@ import { assign } from 'lodash'
 import * as types from '../constants/ActionTypes'
 
 export const initialState = {
-  user: ''
+  user: '',
+  authenticated: false
 }
 
 export default function(state = initialState, action) {
@@ -11,7 +12,10 @@ export default function(state = initialState, action) {
   switch (type) {
 
     case types.AUTHENTICATED:
-      return assign({}, state, { user: username });
+      return assign({}, state, { user: username, authenticated: true })
+
+      case types.UNAUTHENTICATED:
+        return assign({}, state, { user: '', authenticated: false })
 
     default:
       return state;
