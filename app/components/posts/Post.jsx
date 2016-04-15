@@ -6,14 +6,14 @@ import List from 'material-ui/lib/lists/list'
 import ListItem from 'material-ui/lib/lists/list-item'
 import Paper from 'material-ui/lib/paper'
 
-class Posts extends Component {
+class Post extends Component {
 
   constructor (props) {
     super(props)
   }
 
   render() {
-    const { posts, deletePost, editPost, style } = this.props;
+    const { posts, deletePost, editPost } = this.props;
 
     let items = []
 
@@ -26,7 +26,7 @@ class Posts extends Component {
     const content = items.length > 0 ? (<Paper><List>{ items }</List></Paper>) : 'No posts have been written'
 
     return (
-      <div style={ style }>
+      <div>
         {content}
       </div>
     )
@@ -34,9 +34,7 @@ class Posts extends Component {
 }
 
 Posts.propTypes = {
-  posts: PropTypes.array,
-  deletePost: PropTypes.func,
-  editPost: PropTypes.func
+  post: PropTypes.object.isRequired,
 }
 
-export default Posts
+export default Post

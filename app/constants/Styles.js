@@ -1,7 +1,7 @@
 const styles = {
   container: {
-    width: '100%',
-    maxWidth: '1140',
+    width: '66.66%',
+    minWidth: 512,
     margin: '0 auto'
   },
   headerNoMargin: {

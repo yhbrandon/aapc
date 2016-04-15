@@ -7,6 +7,7 @@ import Divider from 'material-ui/lib/divider'
 import Title from './home/Title'
 import About from './home/Services'
 import Doctors from './home/Doctors'
+import Blog from './home/Blog.jsx'
 import Contact from './home/Contact'
 
 
@@ -43,27 +44,25 @@ class Home extends Component {
   }
 
   render() {
-
+    const { posts } = this.props
     const styles = getStyles()
 
     return (
       <div style={styles.root}>
         <AppBar showMenuIconButton={false} style={{height: '192'}} zDepth={0}/>
         <Avatar src="https://media.licdn.com/media/p/7/005/035/0ff/0d9b887.jpg" size={120} style={styles.avatar}/>
-        <Title title="Austin Auditory Processing Center" content="Austin AP Center will begin scheduling appointments soon. To reserve your spot or to request further information please contact..." />
+        <Title title="Austin Auditory Processing Center" content="Austin AP Center will begin scheduling appointments soon. For more information please contact us or register for our newsletter..." />
         <About content="Austin Auditory Processing Center is a speciality clinic providing comprehensive diagnostic testing and treatment recommendations for children and adults with Auditory Processing Disorder (APD) concerns."/>
-        <Doctors/>
-
-        <section id="blog" className="container flex-column">
-          <h1>Blog</h1>
-          <Divider />
-          Blog will go here
-        </section>
-
-        <Contact/>
+        <Doctors />
+        <Blog posts={posts} />
+        <Contact />
       </div>
     )
   }
+}
+
+Home.propTypes = {
+  posts: PropTypes.array
 }
 
 export default Home

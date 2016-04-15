@@ -4,9 +4,7 @@ import { db } from '../index'
 import { showNotification } from '../actions/notifications'
 import { persistentReducer } from 'redux-pouchdb'
 
-export const initialState = [
-
-]
+export const initialState = []
 
 const posts = (state = initialState, action) => {
 
@@ -18,6 +16,7 @@ const posts = (state = initialState, action) => {
         {
           id: id,
           date: action.date,
+          banner: action.banner,
           title: action.title,
           content: action.content
         },

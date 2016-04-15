@@ -4,13 +4,13 @@ import { db } from '../store/configureStore'
 import App from '../containers/App'
 import Home from '../containers/home/Home'
 import Login from '../containers/auth/Login'
-import Blog from '../containers/blog/Blog'
+import Admin from '../containers/admin/Admin'
 
 export default(
   <Route path="/" component={App}>
     <IndexRoute component={Home}/>
     <Route path="login" component={Login}></Route>
-    <Route path="blog" component={Blog} onEnter={requireAuth}></Route>
+    <Route path="admin" component={Admin} onEnter={requireAuth}></Route>
   </Route>
 )
 

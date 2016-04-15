@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import Card from 'material-ui/lib/card/card'
 import Colors from 'material-ui/lib/styles/colors'
-import Content from '../Content'
+import Content from '../app/Content'
 import EmailIcon from 'material-ui/lib/svg-icons/communication/email'
 import FlatButton from 'material-ui/lib/flat-button'
 import LocationIcon from 'material-ui/lib/svg-icons/communication/location-on'
@@ -33,7 +33,7 @@ function getStyles() {
       background: 'url(http://maps.googleapis.com/maps/api/staticmap?center=711+W+38th+St+Austin+Tx&zoom=13&scale=2&size=640x600&maptype=roadmap&sensor=false&format=png&visual_refresh=true) center center no-repeat',
       backgroundSize: 'cover',
       width: '100%',
-      height: '600',
+      height: '100%',
       opacity: '0.5',
       position: 'absolute'
     },

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import AppBar from 'material-ui/lib/app-bar'
 import Snackbar from 'material-ui/lib/snackbar'
-import Content from './Content'
+import Content from './app/Content'
 import ThemeManager from 'material-ui/lib/styles/theme-manager'
 import ThemeDecorator from 'material-ui/lib/styles/theme-decorator'
 

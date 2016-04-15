@@ -6,8 +6,8 @@ function getStyles(props) {
     display: 'block',
     fontSize: '14',
     fontWeight: '500',
-    lineHieght: '1em',
-    margin: '0',
+    margin: '14px 0',
+    padding: '0 16px',
     position: 'relative',
     color: 'rgba(0, 0, 0, 0.54)'
   }

@@ -1,16 +1,16 @@
 import { assign } from 'lodash'
-import { SET_TITLE } from '../actions/app'
+import * as types from '../constants/ActionTypes'
 
 export const initialState = {
-  title: 'Austin Auditory Processing Center'
+  title: ''
 }
 
 export default function(state = initialState, action) {
   const { title, type } = action;
 
   switch (type) {
-    case SET_TITLE:
-      return assign({}, state, { title })
+    case types.SET_TITLE:
+      return assign({}, state, { title: title })
 
     default:
       return state

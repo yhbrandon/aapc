@@ -7,11 +7,6 @@ import TextField from 'material-ui/lib/text-field'
 
 function getStyles() {
   return {
-    button: {
-      position: 'absolute',
-      marginRight: '23',
-      marginBottom: '23'
-    },
     dialog: {
       maxWidth: '500'
     },
@@ -21,10 +16,7 @@ function getStyles() {
   }
 }
 
-class NewPost extends Component {
-  static propTypes = {
-    createPost: PropTypes.func.isRequired
-  }
+class CreatePost extends Component {
 
   constructor(props) {
     super(props)
@@ -48,7 +40,8 @@ class NewPost extends Component {
     if (this.state.title === '' && this.state.content === '' ) {
       alert('Fill that shit out yo!')
     } else {
-      this.props.createPost(this.state.title, this.state.content)
+      this.props.createPost(this.state.title, this.state.banner, this.state.content)
+      this.setState({isOpen: false})
     }
   }
 
@@ -60,7 +53,7 @@ class NewPost extends Component {
   }
 
   render() {
-    const { createPost } = this.props;
+    const { createPost, style } = this.props;
     const styles = getStyles()
 
     const actions = [
@@ -77,7 +70,7 @@ class NewPost extends Component {
     ]
 
     return (
-      <div>
+      <div style={ style }>
         <FloatingActionButton onClick={this.handleOpen} style={styles.button}>
           <ContentAdd />
         </FloatingActionButton>
@@ -90,11 +83,17 @@ class NewPost extends Component {
           contentStyle={styles.dialog}>
           <TextField name="title" floatingLabelText="Title" onChange={this.handleChange} style={styles.input}/>
           <br/>
-          <TextField name="content" floatingLabelText="Content" onChange={this.handleChange} multiLine={true} rows={3} style={styles.input} />
+          <TextField name="banner" floatingLabelText="Banner URL" onChange={this.handleChange} style={styles.input}/>
+          <br/>
+          <TextField name="content" floatingLabelText="Content" onChange={this.handleChange} multiLine={true} rows={20} style={styles.input} />
         </Dialog>
       </div>
     )
   }
 }
 
-export default NewPost
+CreatePost.propTypes = {
+  createPost: PropTypes.func.isRequired
+}
+
+export default CreatePost

@@ -11,7 +11,7 @@ export function login(username, password) {
         dispatch({ type: types.SHOW_NOTIFICATION, message })
       } else {
         dispatch({ type: types.AUTHENTICATED, username })
-        dispatch(push('/blog'))
+        dispatch(push('/admin'))
       }
     })
   }

@@ -3,22 +3,20 @@ import { bindActionCreators } from 'redux'
 import { setTitle } from '../../actions/app'
 import { createPost, deletePost, editPost } from '../../actions/posts'
 
-import Blog from '../../components/Blog'
+import Admin from '../../components/Admin'
 
 function mapStateToProps(state) {
   return {
     title: state.app.title,
-    posts: state.posts.posts
+    posts: state.posts
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     setTitle,
-    createPost: createPost(),
-    deletePost: deletePost(),
-    editPost: editPost()
+    createPost
   }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Blog);
+export default connect(mapStateToProps, mapDispatchToProps)(Admin);

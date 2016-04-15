@@ -4,8 +4,7 @@ import React, { Component, PropTypes } from 'react'
 function getStyles(props) {
   const styles = {
     display: 'flex',
-    width: '100%',
-    position: 'relative'
+    flex: '0 1 auto'
   }
 
   styles.flexDirection = props.layout
@@ -16,6 +15,7 @@ function getStyles(props) {
   if (props.padding) styles.padding = props.padding
   if (props.width) styles.maxWidth = props.width
   if (props.wrap) styles.flexWrap = 'wrap'
+  if (props.basis) styles.flexBasis = props.basis
 
   if (props.style) return {...props.style, ...styles}
   else return styles

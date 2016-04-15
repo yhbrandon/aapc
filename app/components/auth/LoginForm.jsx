@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import Avatar from 'material-ui/lib/avatar'
-import Content from '../Content'
+import Content from '../app/Content'
 import Card from 'material-ui/lib/card/card'
 import FlatButton from 'material-ui/lib/flat-button'
 import TextField from 'material-ui/lib/text-field'
