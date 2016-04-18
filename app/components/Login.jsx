@@ -1,12 +1,13 @@
 import React, { Component, PropTypes } from 'react'
 import Colors from 'material-ui/lib/styles/colors'
 import LoginForm from './auth/LoginForm'
+import Theme from '../constants/Theme'
 
 function getStyles() {
   return {
     root: {
       position: 'absolute',
-      backgroundColor: Colors.teal500,
+      backgroundColor: Theme.palette.primary1Color,
       width: '100%',
       height: '100%'
     }

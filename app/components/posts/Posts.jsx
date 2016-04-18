@@ -12,22 +12,31 @@ class Posts extends Component {
     super(props)
   }
 
+  handleSelect = (id) => {
+    console.log(id)
+    this.props.selectPost(id)
+  }
+
   render() {
-    const { posts, deletePost, editPost, style } = this.props;
+    const { posts, style } = this.props;
 
-    let items = []
-
-    posts.forEach((post) => {
-      let avatar = post.banner ? <Avatar src={ post.banner } /> : <Avatar>{ post.title.charAt(0).toUpperCase() }</Avatar>
-
-      items.push(<ListItem key={ post.id } leftAvatar={ avatar } primaryText={ post.title } secondaryText={ moment(post.date).format("MMM Do YYYY") }></ListItem>)
-    }, this)
-
-    const content = items.length > 0 ? (<Paper><List>{ items }</List></Paper>) : 'No posts have been written'
+    const hasPosts = posts.length > 0
+    const nodes = !hasPosts ?
+      <em>Please create some posts</em> :
+      posts.map(post =>
+        <ListItem
+          key={ post.id }
+          leftAvatar={ post.banner ? <Avatar src={ post.banner } /> : <Avatar>{ post.title.charAt(0).toUpperCase() }</Avatar> }
+          primaryText={ post.title }
+          secondaryText={ moment(post.date).format("MMM Do YYYY") }
+          onClick={() => this.handleSelect(post.id)}></ListItem>
+      )
 
     return (
       <div style={ style }>
-        {content}
+        <Paper>
+          <List>{ nodes }</List>
+        </Paper>
       </div>
     )
   }
@@ -35,8 +44,7 @@ class Posts extends Component {
 
 Posts.propTypes = {
   posts: PropTypes.array,
-  deletePost: PropTypes.func,
-  editPost: PropTypes.func
+  selectPost: PropTypes.func
 }
 
 export default Posts
