@@ -13,7 +13,6 @@ class Posts extends Component {
   }
 
   handleSelect = (id) => {
-    console.log(id)
     this.props.selectPost(id)
   }
 

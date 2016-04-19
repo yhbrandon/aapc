@@ -33,12 +33,3 @@ export function editPost(id, title, banner, content) {
     })
   }
 }
-
-export function selectAdminPost(id) {
-  return (dispatch) => {
-    dispatch({
-      type: types.SELECT_ADMIN_POST,
-      id
-    })
-  }
-}

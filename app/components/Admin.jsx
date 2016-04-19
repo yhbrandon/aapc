@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { filter } from 'lodash'
 import Styles from '../constants/Styles'
 import { push } from 'react-router-redux'
 import AppBar from 'material-ui/lib/app-bar'
@@ -33,7 +34,8 @@ class Admin extends Component {
     super(props)
     this.state = {
       type: 'create',
-      isDialogOpen: false
+      isDialogOpen: false,
+      selectedPost: {}
     }
   }
 
@@ -52,9 +54,17 @@ class Admin extends Component {
     this.setState({ isDialogOpen: false })
   }
 
+  handleEditPost = (id, title, banner, content) => {
+    this.props.editPost(id, title, banner, content)
+    this.setState({ isDialogOpen: false })
+  }
+
   handleSelectPost = (id) => {
-    this.setState({ type: 'edit', isDialogOpen: true })
-    this.props.selectAdminPost(id)
+    this.setState({
+      type: 'edit',
+      isDialogOpen: true,
+      selectedPost: this.props.posts.find(post => post.id === id)
+    })
   }
 
   render() {
@@ -66,8 +76,18 @@ class Admin extends Component {
         <AppBar title={title} zDepth={0} style={ styles.appbar }/>
         <div style={ Styles.container }>
           <Content layout="column">
-            <Posts posts={ posts } style={ styles.posts } selectPost={ this.handleSelectPost }></Posts>
-            <PostHandler createPost={ this.handleCreatePost } style={ styles.button } func={ this.state.type } onCreateClick={ this.handleCreateClick } isOpen={ this.state.isDialogOpen }></PostHandler>
+            <Posts
+              posts={ posts }
+              style={ styles.posts }
+              selectPost={ this.handleSelectPost }></Posts>
+            <PostHandler
+              createPost={ this.handleCreatePost }
+              editPost={ this.handleEditPost }
+              style={ styles.button }
+              type={ this.state.type }
+              onCreateClick={ this.handleCreateClick }
+              isOpen={ this.state.isDialogOpen }
+              selectedPost={ this.state.selectedPost }></PostHandler>
           </Content>
         </div>
       </div>
@@ -78,7 +98,7 @@ class Admin extends Component {
 Admin.propTypes = {
   setTitle: PropTypes.func,
   createPost: PropTypes.func,
-  selectAdminPost: PropTypes.func,
+  editPost: PropTypes.func,
   title: PropTypes.string,
   posts: PropTypes.array
 }

@@ -21,7 +21,19 @@ class PostHandler extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { title: '', banner: '', content: '' }
+    this.state = {
+      title: '',
+      banner: '',
+      content: ''
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      title: nextProps.selectedPost.title,
+      banner: nextProps.selectedPost.banner,
+      content: nextProps.selectedPost.content
+    })
   }
 
   handleOpen = () => {
@@ -39,7 +51,7 @@ class PostHandler extends Component {
       if ( type === 'create' ) {
         this.props.createPost(this.state.title, this.state.banner, this.state.content)
       } else if ( type === 'edit' ) {
-        this.props.editPost(this.state.post.id, this.state.title, this.state.banner, this.state.content)
+        this.props.editPost(this.props.selectedPost.id, this.state.title, this.state.banner, this.state.content)
       } else if ( type === 'delete' ) {
         this.props.deletePost(this.state.post.id)
       }
@@ -56,22 +68,24 @@ class PostHandler extends Component {
   }
 
   render() {
-    const { createPost, style, func, isOpen } = this.props
+    const { createPost, editPost, style, type, post, isOpen } = this.props
     const actions = []
     const styles = getStyles()
-    const title = func === 'create' ? 'Create new post' : 'Edit Post'
+    const title = type === 'create' ? 'Create new post' : 'Edit Post'
 
-    if (func === 'create') {
+    if ( type === 'create' ) {
       actions.push(<FlatButton label="Cancel" secondary={true} onClick={() => this.handleClose()}/>)
       actions.push(<FlatButton label="Save" primary={true} onClick={() => this.handleSave('create')} />)
     } else {
       actions.push(<FlatButton label="Delete" secondary={true} onClick={() => this.handleSave('delete')} />)
-      actions.push(<FlatButton label="Edit" primary={true} onClick={() => this.handleEdit('edit')} />)
+      actions.push(<FlatButton label="Edit" primary={true} onClick={() => this.handleSave('edit')} />)
     }
 
     return (
       <div style={ style }>
-        <FloatingActionButton onClick={() => this.props.onCreateClick() } style={ styles.button }>
+        <FloatingActionButton
+          onClick={() => this.props.onCreateClick() }
+          style={ styles.button }>
           <ContentAdd />
         </FloatingActionButton>
         <Dialog
@@ -81,11 +95,28 @@ class PostHandler extends Component {
           open={ isOpen }
           onRequestClose={this.handleClose}
           contentStyle={styles.dialog}>
-          <TextField name="title" floatingLabelText="Title" onChange={this.handleChange} style={styles.input} value={ this.state.title }/>
+          <TextField
+            name="title"
+            floatingLabelText="Title"
+            onChange={this.handleChange}
+            style={styles.input}
+            value={ this.state.title }/>
           <br/>
-          <TextField name="banner" floatingLabelText="Banner URL" onChange={this.handleChange} style={styles.input} value={ this.state.banner }/>
+          <TextField
+            name="banner"
+            floatingLabelText="Banner URL"
+            onChange={this.handleChange}
+            style={styles.input}
+            value={ this.state.banner }/>
           <br/>
-          <TextField name="content" floatingLabelText="Content" onChange={this.handleChange} multiLine={true} rows={20} style={styles.input} value={ this.state.content } />
+          <TextField
+            name="content"
+            floatingLabelText="Content"
+            onChange={this.handleChange}
+            multiLine={true}
+            rows={20}
+            style={styles.input}
+            value={ this.state.content } />
         </Dialog>
       </div>
     )
@@ -97,8 +128,8 @@ PostHandler.propTypes = {
   editPost: PropTypes.func,
   deletePost: PropTypes.func,
   onCreateClick: PropTypes.func,
-  func: PropTypes.string,
-  post: PropTypes.object
+  type: PropTypes.string,
+  selectedPost: PropTypes.object
 }
 
 export default PostHandler
