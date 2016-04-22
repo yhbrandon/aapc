@@ -5,7 +5,6 @@ import { push } from 'react-router-redux'
 import AppBar from 'material-ui/lib/app-bar'
 import Content from './app/Content'
 import Posts from './posts/Posts'
-import moment from 'moment'
 import PostHandler from './posts/PostHandler'
 import Subheader from './app/Subheader'
 
@@ -47,10 +46,8 @@ class Admin extends Component {
     this.setState({ type: 'create', isDialogOpen: true })
   }
 
-  handleCreatePost = (title, banner, content) => {
-    const currentDate = moment().startOf('day').toDate()
-
-    this.props.createPost(currentDate, title, banner, content)
+  handleCreatePost = (post) => {
+    this.props.createPost(post)
     this.setState({ isDialogOpen: false })
   }
 

@@ -1,13 +1,16 @@
 import * as types from '../constants/ActionTypes'
 
-export function createPost(date, title, banner, content) {
+export function fetchPosts() {
+  return (dispatch) => {
+    dispatch({ type: types.FETCH_POSTS})
+  }
+}
+
+export function createPost(post) {
   return (dispatch) => {
     dispatch({
-      type: types.CREATE_POST,
-      date: date,
-      title: title,
-      banner: banner,
-      content: content
+      type: types.INSERT_POST,
+      post
     })
   }
 }

@@ -6,7 +6,7 @@ import Home from '../../components/Home'
 function mapStateToProps(state) {
   return {
     title: state.app.title,
-    posts: state.posts.posts
+    posts: state.posts
   }
 }
 

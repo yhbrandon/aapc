@@ -49,7 +49,11 @@ class PostHandler extends Component {
       alert('Fill that shit out yo!')
     } else {
       if ( type === 'create' ) {
-        this.props.createPost(this.state.title, this.state.banner, this.state.content)
+        this.props.createPost({
+          title:this.state.title,
+          banner: this.state.banner,
+          content: this.state.content
+        })
       } else if ( type === 'edit' ) {
         this.props.editPost(this.props.selectedPost.id, this.state.title, this.state.banner, this.state.content)
       } else if ( type === 'delete' ) {

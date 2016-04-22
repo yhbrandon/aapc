@@ -20,15 +20,18 @@ class Posts extends Component {
     const { posts, style } = this.props;
 
     const hasPosts = posts.length > 0
+
     const nodes = !hasPosts ?
       <em>Please create some posts</em> :
       posts.map(post =>
+        post.title ?
         <ListItem
-          key={ post.id }
+          key={ post._id }
           leftAvatar={ post.banner ? <Avatar src={ post.banner } /> : <Avatar>{ post.title.charAt(0).toUpperCase() }</Avatar> }
           primaryText={ post.title }
           secondaryText={ moment(post.date).format("MMM Do YYYY") }
           onClick={() => this.handleSelect(post.id)}></ListItem>
+        : <div></div>
       )
 
     return (
