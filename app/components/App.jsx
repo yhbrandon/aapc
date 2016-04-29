@@ -6,7 +6,7 @@ import ThemeManager from 'material-ui/lib/styles/theme-manager'
 import ThemeDecorator from 'material-ui/lib/styles/theme-decorator'
 
 import Theme from '../constants/Theme'
-import './App.scss';
+import './App.scss'
 
 @ThemeDecorator(ThemeManager.getMuiTheme(Theme))
 class App extends Component {
@@ -15,29 +15,25 @@ class App extends Component {
     super(props)
   }
 
-  onRequestClose() {
-    this.props.clearNotification()
+  componentDidMount() {
+    this.props.fetchPosts()
   }
 
   render() {
-    const { children, notify, message } = this.props;
+    const { children } = this.props
 
     return (
       <section>
         {children}
-        <Snackbar open={notify} message={message} autoHideDuration={4000} onRequestClose={this.onRequestClose.bind(this)} />
       </section>
-    )
+    );
   }
 }
 
 App.propTypes = {
   children: PropTypes.node,
-  clearNotification: PropTypes.func,
   title: PropTypes.string,
-  user: PropTypes.string,
-  notify: PropTypes.bool,
-  message: PropTypes.string
+  fetchPosts: PropTypes.func
 }
 
 export default App

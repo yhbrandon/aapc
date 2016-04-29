@@ -1,23 +1,19 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { clearNotification } from '../actions/notifications'
+import { fetchPosts } from '../actions/posts'
 
-import App from '../components/App'
+import App from '../components/App';
 
 function mapStateToProps(state) {
   return {
-    title: state.app.title,
-    user: state.auth.user,
-    authenticated: state.auth.authenticated,
-    notify: state.notifications.notify,
-    message: state.notifications.message
+    title: state.app.title
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    clearNotification
-  }, dispatch);
+    fetchPosts
+  }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

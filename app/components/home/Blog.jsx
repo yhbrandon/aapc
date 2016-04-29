@@ -68,22 +68,24 @@ class BlogPreview extends Component {
 
     const items = []
 
-    posts.forEach((post) => {
-      let image = post.banner ? <CardMedia style={ styles.postImage }><img src={ post.banner }  /></CardMedia> : null
+    if (posts.length > 0) {
+      posts.forEach((post) => {
+        let image = post.banner ? <CardMedia style={ styles.postImage }><img src={ post.banner }  /></CardMedia> : null
 
-      items.push(
-        <div style={ styles.post } key={ post.title }>
-          <Card>
-            {image}
-            <CardTitle title={ post.title } subtitle={ moment(post.date).format("MMM Do YYYY") } titleStyle={ styles.title }/>
-            <CardText style={ styles.postText }>{ post.content.substr(0, post.content.indexOf('.')) }</CardText>
-            <CardActions>
-              <FlatButton label="Read More" primary={true} onClick={ this.onPostClick(post.id) } />
-            </CardActions>
-          </Card>
-        </div>
-      )
-    }, this)
+        items.push(
+          <div style={ styles.post } key={ post.title }>
+            <Card>
+              {image}
+              <CardTitle title={ post.title } subtitle={ moment(post.date).format("MMM Do YYYY") } titleStyle={ styles.title }/>
+              <CardText style={ styles.postText } dangerouslySetInnerHTML={{__html: post.content}}></CardText>
+              <CardActions>
+                <FlatButton label="Read More" primary={true} onClick={ this.onPostClick(post.id) } />
+              </CardActions>
+            </Card>
+          </div>
+        )
+      }, this)
+    }
 
     return (
       <Content layout="column" style={ Object.assign(styles.root, Styles.container) }>

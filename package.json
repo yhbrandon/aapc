@@ -19,14 +19,12 @@
     "jquery": "^2.2.2",
     "node-sass": "^3.4.2",
     "opn": "^4.0.1",
-    "pouch-redux-middleware": "^0.2.0",
     "react-transform": "0.0.3",
     "react-transform-catch-errors": "^1.0.2",
     "react-transform-hmr": "^1.0.4",
     "redbox-react": "^1.2.2",
     "regenerator": "^0.8.42",
     "sass-loader": "^3.1.2",
-    "shelljs": "^0.6.0",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
     "util": "^0.10.3",
@@ -37,11 +35,10 @@
   },
   "dependencies": {
     "history": "^2.0.1",
+    "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.5.0",
     "material-ui": "^0.14.4",
     "moment": "^2.12.0",
-    "pouchdb": "^5.3.1",
-    "pouchdb-authentication": "^0.4.3",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.0",
@@ -50,9 +47,7 @@
     "react-tap-event-plugin": "^0.2.2",
     "reactify": "^1.1.1",
     "redux": "^3.3.1",
-    "redux-form": "^5.0.1",
     "redux-logger": "^2.5.2",
-    "redux-pouchdb": "0.0.7",
     "redux-thunk": "^1.0.3"
   }
 }

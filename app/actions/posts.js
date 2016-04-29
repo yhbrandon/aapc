@@ -1,38 +1,24 @@
-import * as types from '../constants/ActionTypes'
+import fetch from 'isomorphic-fetch';
+import * as types from '../constants/ActionTypes';
 
 export function fetchPosts() {
   return (dispatch) => {
-    dispatch({ type: types.FETCH_POSTS})
+    dispatch(requestPosts())
+    return fetch('https://www.googleapis.com/blogger/v3/blogs/4470603525624087576/posts?key=AIzaSyD0KeGj4PHRdd0Qu-3dWoICV1p6mbZnjNo')
+      .then(response => response.json())
+      .then(json => dispatch(recievePosts(json)))
   }
 }
 
-export function createPost(post) {
-  return (dispatch) => {
-    dispatch({
-      type: types.INSERT_POST,
-      post
-    })
+function recievePosts(data) {
+  return {
+    type: types.RECEIVE_POSTS,
+    posts: data.items
   }
 }
 
-export function deletePost(id) {
-  return (dispatch) => {
-    dispatch({
-      type: types.DELETE_POST,
-      id
-    })
-  }
-}
-
-
-export function editPost(id, title, banner, content) {
-  return (dispatch) => {
-    dispatch({
-      type: types.EDIT_POST,
-      id: id,
-      title: title,
-      banner: banner,
-      content: content
-    })
+function requestPosts(subreddit) {
+  return {
+    type:  types.REQUEST_POSTS
   }
 }
